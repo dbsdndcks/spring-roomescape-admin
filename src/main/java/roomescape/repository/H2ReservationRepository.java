@@ -101,6 +101,7 @@ public class H2ReservationRepository implements ReservationRepository {
     public boolean isDuplicateDateAndTime(LocalDate date, Long timeId) {
         final String sql = "SELECT COUNT(*) FROM reservation as r"
                 + " INNER JOIN reservation_time as t"
+                + " ON t.id = r.time_id"
                 + " WHERE r.date = ? and t.id =?";
         return jdbcTemplate.queryForObject(sql, Integer.class, date, timeId) > 0;
     }
