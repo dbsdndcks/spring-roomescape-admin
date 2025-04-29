@@ -57,20 +57,11 @@ public class MissionStepTest {
     @Test
     @DisplayName("예약 저장,조회,삭제 테스트")
     void reservationCrudTest() {
-        Map<String, String> timeParams = new HashMap<>();
-        timeParams.put("startAt", "10:00");
 
         Map<String, String> params = new HashMap<>();
         params.put("name", "브라운");
         params.put("date", "2023-08-05");
         params.put("timeId", "1");
-
-        RestAssured.given().log().all()
-                .contentType(ContentType.JSON)
-                .body(timeParams)
-                .when().post("/times")
-                .then().log().all()
-                .statusCode(200);
 
         RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
@@ -132,20 +123,11 @@ public class MissionStepTest {
     @Test
     @DisplayName("예약 삭제,추가 테스트")
     void reservationSaveAndDeleteTest() {
-        Map<String, String> timeParams = new HashMap<>();
-        timeParams.put("startAt", "12:00");
 
         Map<String, String> params = new HashMap<>();
         params.put("name", "브라운");
         params.put("date", "2023-08-05");
         params.put("timeId", "1");
-
-        RestAssured.given().log().all()
-                .contentType(ContentType.JSON)
-                .body(timeParams)
-                .when().post("/times")
-                .then().log().all()
-                .statusCode(200);
 
         RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
@@ -199,20 +181,10 @@ public class MissionStepTest {
     @Test
     @DisplayName("예약 저장,조회 테스트")
     void getReservationAndSaveTest() {
-        Map<String, String> timeParams = new HashMap<>();
-        timeParams.put("startAt", "12:00");
-
         Map<String, Object> reservation = new HashMap<>();
         reservation.put("name", "브라운");
         reservation.put("date", "2023-08-05");
         reservation.put("timeId", 1);
-
-        RestAssured.given().log().all()
-                .contentType(ContentType.JSON)
-                .body(timeParams)
-                .when().post("/times")
-                .then().log().all()
-                .statusCode(200);
 
         RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
